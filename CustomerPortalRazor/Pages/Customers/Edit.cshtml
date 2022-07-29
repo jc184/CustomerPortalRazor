@@ -5,7 +5,16 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<style type="text/css">
 
+    .active {
+        background-color:green;
+    }
+    .inactive {
+        background-color:red;
+    }
+    
+</style>
 <h1>Edit</h1>
 
 <h4>Customer</h4>
@@ -58,7 +67,7 @@
             <div class="form-group">
                 <label asp-for="Customer.Status" class="control-label"></label>
                 <select asp-for="Customer.Status" 
-                    class="form-control" 
+                    class="form-control statusClass" 
                     asp-items="Html.GetEnumSelectList<Status>()"></select>
                 <span asp-validation-for="Customer.Status" class="text-danger"></span>
             </div>
@@ -83,5 +92,14 @@
             window.onload = function () {
                 alert("Status is Inactive");
             };
+            document.getElementsByClassName("statusClass")[0].classList.add("inactive");
+         
         </script>
-    }
+        
+        
+}
+else
+{   <script>
+         document.getElementsByClassName("statusClass")[0].classList.add("active");
+    </script>
+}
