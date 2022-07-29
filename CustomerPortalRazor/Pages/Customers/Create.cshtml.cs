@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using CustomerPortalRazor.Data;
 using CustomerPortalRazor.Data.Models;
 
-namespace CustomerPortalRazor
+namespace CustomerPortalRazor.Pages.Customers
 {
     public class CreateModel : PageModel
     {

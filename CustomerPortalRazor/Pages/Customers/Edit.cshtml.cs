@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using CustomerPortalRazor.Data;
 using CustomerPortalRazor.Data.Models;
 
-namespace CustomerPortalRazor
+namespace CustomerPortalRazor.Pages.Customers
 {
     public class EditModel : PageModel
     {

@@ -8,18 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using CustomerPortalRazor.Data;
 using CustomerPortalRazor.Data.Models;
 
-namespace CustomerPortalRazor
+namespace CustomerPortalRazor.Pages.Customers
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly CustomerPortalRazor.Data.ApplicationDbContext _context;
 
-        public DeleteModel(CustomerPortalRazor.Data.ApplicationDbContext context)
+        public DetailsModel(CustomerPortalRazor.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
         public Customer Customer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -36,24 +35,6 @@ namespace CustomerPortalRazor
                 return NotFound();
             }
             return Page();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            Customer = await _context.Customers.FindAsync(id);
-
-            if (Customer != null)
-            {
-                _context.Customers.Remove(Customer);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }
